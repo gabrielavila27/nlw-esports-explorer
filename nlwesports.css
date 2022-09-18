@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* A opção border box permite que quando estabelicido uma largura máxima em um seletor, caso seja ultilizado um padding, a largura máxima continue sendo a mesma, e não se some ao padding. */
+    box-sizing: border-box;
+}
+
+/* Removendo a decoração da lista */
+section ul{
+    list-style: none;
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+body {
+    /* Colocando imagem de fundo */
+    background-image: url(assests/background.jpg);
+    /* Centralizando a imagem */
+    background-position:top center;
+    /* definido a largura e altura do background e sua responsividade*/
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-color: #121214;
+}
+
+body * {
+    font-family: 'Inter', sans-serif;
+    line-height: 160%;
+}
+
+/* O asterísco é um seletor universal. Ele seleciona todos os elementos dentro do seletor. 
+(main *)*/
+
+header {
+/* Imagens tem propriedades de texte */
+    text-align: center;
+    padding-top: 32px;
+    height: calc(120px + 32px);
+}
+
+header div {
+    width: 120px;
+    margin:auto;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    border-radius: 50%;
+    display: flex;
+    transition: transform .3s;
+
+}
+
+header div:hover {
+    transform: scale(1.1)
+}
+
+header img {
+    width: 100%;;
+    border-radius: 50%;
+    margin:4px;
+}
+
+main {
+    max-width: 580px;
+    width: 90%;
+    margin: 32px auto;
+    display: grid;
+    gap: 24px;
+}
+
+section {
+    color: white;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    padding-top: 4px;
+    border-radius: 10px
+}
+
+section div {
+    background-color: #2A2634;
+    padding: 32px;
+    padding-top: 24px;
+    border-radius: 8px;
+}
+
+section h2 {
+    font-weight: 900;
+    font-size: 24px;
+    letter-spacing: -0.47px;
+}
+
+section p {
+
+    letter-spacing: -0.18px;
+    color: #A1A1AA;
+}
+
+section ul li {
+    transition: transform 0.3s;
+}
+
+section ul li:hover {
+    transform: scale(1.1);
+}
+
+.game-list img{
+    width: 90px;
+    border-radius: 8px;
+}
+
+.channel-list img {
+    width: 70px;
+    border-radius: 50%;
+    border: 1px solid #443E54
+}
+
+header div {
+    /* animation-delay = 3 termo da propriedade */
+    /* A propriedade 'backwards' serve para que não haja problemas de um duplo carregamento do elemento animado ao utilizar a proriedade delay */
+    animation: fromTop .7s .4s backwards;
+    /* animation-delay: 1s; */
+}
+
+main section {
+    animation: fromBottom 0.7s backwards;
+}
+
+/* :nth-child() serve para selecionar o elemento filho desejado dentro do elemento pai */
+main section :nth-child(1) {
+    animation-delay: 0;
+}
+
+main section:nth-child(2) {
+    animation-delay: .3s;
+}
+
+main section:nth-child(3) {
+    animation-delay: .6s;
+}
+
+/* Criando animação */
+@keyframes fromTop {
+    /* ou 0% para 100% */
+    from {
+        opacity: 0;
+        transform: translateY(-30px)
+    }
+
+    to {
+        /* 0 é a posição inicial/atual de qualquer elemento. */
+        opacity: 1;
+        transform: translateY(0)
+    }  
+}
+
+@keyframes fromBottom {
+    from{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
